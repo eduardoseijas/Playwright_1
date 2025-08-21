@@ -1,0 +1,20 @@
+el archivo o file conftest.py tiene que tener ese nombre NO puede ser por ejemplo conftest_2.py
+
+en este caso, al poder hacer un function y otro session, cree uno de forma global con el function
+
+y dentro de la carpeta 26, cree uno para session
+
+@pytest.fixture(scope="session") # entre las comillas puedes usar tambien "session"
+def set_up_session(playwright)-> None:
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    context = browser.new_context(viewport={'width':1450,'height':800,}) #record_video_dir="VideosCheckboxReto")
+    
+    #Iniciar Trace Viewer
+    context.tracing.start(screenshots=True, snapshots=True, sources=True)
+    page = context.new_page()
+    page.goto(Url)
+    page.set_default_timeout(5000)
+    
+    yield page #esta es como un return
+    context.close()
+    browser.close()

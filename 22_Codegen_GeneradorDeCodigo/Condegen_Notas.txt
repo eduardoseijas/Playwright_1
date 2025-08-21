@@ -1,0 +1,5 @@
+Con este comando lanzamos la operacion y la pag que querramos testear
+playwright codegen https://www.saucedemo.com/
+
+luego desde ahi, cada paso que vamos haciendo, podemos seleccionar el lenguaje que queramos y copiar,
+traernoslo al proyecto y correrlo

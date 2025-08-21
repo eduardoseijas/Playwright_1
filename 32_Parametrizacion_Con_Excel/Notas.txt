@@ -1,0 +1,20 @@
+Libreria
+import openpyxl
+
+comando para instalar 
+
+pip install openpyxl
+
+
+comando para llamar, en este caso desde la raiz, estando en el archivo 32
+
+python -m pytest .\32_Parametrizacion_Con_Excel\Test_Excel_1.py -s -v
+
+---------------------------------------
+
+#PAGINA PARA CREAR DATA
+
+https://www.mockaroo.com/
+
+
+

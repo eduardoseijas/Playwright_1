@@ -1,0 +1,18 @@
+Para generar las funciones debo crearlo por class y darle un nombre
+
+por ejemplo
+
+class Funciones_Globales:
+    #El __init__() es el constructor, iniciador
+    def __init__(self,page):
+        self.page=page
+        
+    def Esperar(self,tiempo):
+        time.sleep(tiempo)
+        
+
+Una vez creada la funcion, desbes llamarla como las librerias en este caso from Funciones_Globales import Funciones_Globales
+y se tiene que crear un Objeto de tipo Funciones_Globales
+    F=Funciones_Globales(page)
+
+    Y para llamarla siempre sera F. con el nomnre de la funcion que creaste

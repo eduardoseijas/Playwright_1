@@ -1,0 +1,16 @@
+PRUEBAS EN PARALELO
+
+Para pytest-xdist
+
+pag web https://pypi.org/project/pytest-xdist/
+
+COMANDO PARA INSTALAR 
+pip install pytest-xdist
+
+comando para lanzar
+
+pytest nombre del archivo.py -s -v -n 3
+
+en mi caso, usando el archivo de la carpeta 28 y que yo lo corro desde la raiz
+
+python -m pytest .\28_Pruebas_Paralaelo\Test_Paralelo_1.py -s -v -n 3

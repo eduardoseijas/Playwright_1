@@ -1,0 +1,6 @@
+Comando para correr la funcion TRACE VIEWER
+primero se corre normal, por ejemplo como lo hago desde la base:
+python -m pytest.\20_Trace_Viewer\Trace_Viewer.py
+Y luego usamos el siguiente comando:
+playwright show-trace trace.zip
+

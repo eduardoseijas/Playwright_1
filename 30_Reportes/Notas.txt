@@ -1,0 +1,28 @@
+Pag web https://pypi.org/project/pytest-html/
+
+Comando para instalar
+
+pip install pytest-html
+
+Comando para lanzar y sacar el reporte --html=report.html
+
+desde la raiz en mi caso seria
+
+python -m pytest .\30_Reportes\Test_Reporte_1.py --html=report.html 
+OJO:
+en el html= va el nombre que quieres darle, en este caso es report.html, puede ser report_uno.html o el que quieras y que sea .hmtl
+
+si le agregas -n 2 o 3 o 4 o el numero que quieras, es el numero de veces que se repite o que lanza a a¡la vez, por ejemplo
+
+Si quiero ver un log de captura para ver el error, puedes colocarle esto al final:
+--self-contained-html --capture=tee-sys
+
+Generar el reporte:
+python -m pytest .\30_Reportes\Test_Reporte_1.py -n2 --html=report.html
+
+Generar con log de captura segun el curso, aunque a mi si me genera el log de captura, sin agregarle --self-contained-html --capture=tee-sys 
+python -m pytest .\30_Reportes\Test_Reporte_1.py -n2 --html=report_dos.html --self-contained-html --capture=tee-sys
+
+
+
+Para abrirlo y verlo puedes darle click derecho sobre el archivo -> reveal in file explorer y abrirlo de la carpeta

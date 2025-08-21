@@ -1,0 +1,18 @@
+Cree un archivo llamado conftest, el cual la hice de forma global, que este dentro de la carpeta raiz
+
+creando una def set_up y arrieba agregandole una funcion pytest
+
+@pytest.fixture(scope="function")
+def set_up(playwright)-> None:
+    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    context = browser.new_context(viewport={'width':1450,'height':800,}) #record_video_dir="VideosCheckboxReto")
+    
+    #Iniciar Trace Viewer
+    context.tracing.star(screenshots=True, snapshots=True, sources=True)
+    page = context.new_page()
+    page.goto(Url)
+    page.set_default_timeout(5000)
+    
+    yield page #esta es como un return
+    context.close()
+    browser.close()
