@@ -47,6 +47,9 @@ git reset --soft con el numero de ese archivo cargado que podemos ver cuando hac
 git lg
 por ejemplo git reset --soft 555179e
 
+*uno para borrar todo
+git reset --hard 
+
 *El comando que nos da todos los momivientos realizados
 git reflog
 
