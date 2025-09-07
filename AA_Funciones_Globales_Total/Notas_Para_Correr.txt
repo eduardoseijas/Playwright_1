@@ -1,0 +1,10 @@
+Para poder correr un proyecto que me esta dando problemas, puedo hacerlo desde la raiz usando toda la ruta con
+python por ejemplo
+
+todo esto desde la raiz \Practica_Playwright>
+python -m pytest .\15_Select\Select_1.py
+
+si quiero correr todo lo que esta en una carpeta, tambien puedes hacerlo desde la razin
+con el comando
+python -m pytest y el numero de la carpeta, por ejemplo en este caso que es la carpeta 15:
+python -m pytest .\15_Select\

@@ -1,0 +1,5 @@
+pytest
+playwright
+pytest-playwright
+openpyxl>=3.1
+pandas>=2.0

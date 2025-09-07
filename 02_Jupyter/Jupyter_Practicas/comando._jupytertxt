@@ -1,0 +1,20 @@
+## puedes hacer comentarios dentro de la maquina virtual
+
+Como crear listas:
+
+lista []
+print(lista)
+
+con esto entiende que es una lista
+----------------------------------------------------
+
+lista=["Php","JavaScript","Python","Java"]
+print(lista)
+
+si quiero que me marque alguno en especifico se hace como los array
+
+por ejemplo 
+lista=["Php","JavaScript","Python","Java"]
+print(lista [2]) esto me lanzaria "Python", los array en programacion recordar q empiezan desde el 0
+
+Esto esta guardado como Practica_4_Lista

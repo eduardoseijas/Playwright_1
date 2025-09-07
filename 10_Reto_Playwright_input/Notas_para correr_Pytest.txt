@@ -1,0 +1,8 @@
+comandod para correr
+pytet nombre del archivo
+
+para que se vea la ventana es pytest --headed y nombre del archivo 
+
+para correr con un tiempo en slowmo
+pytest --slowmo 2000 --headed y nombre del archivo 
+en esos 2000 es para decir 2 segundos

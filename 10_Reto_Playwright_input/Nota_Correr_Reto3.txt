@@ -1,0 +1,12 @@
+Con toda esto al inicio de la funcion
+
+def test_reto_playwright_input3(playwright) -> None:
+    browser=playwright.chromium.launch(headless=False, slow_mo=500)
+    context=browser.new_context()
+    page=context.new_page()
+    page.goto("https://validaciones.rodrigovillanueva.com.mx/index.html")
+    expect(page).to_have_title("Formulario de Ejemplo")
+
+    ya te ahora tener q usar todo el comando como en el reto 2 pytest --slowmo 1000 --headed Reto_input2_Playwright.py
+
+    y con solamente colocar pytest y el nombre del archivo, ya corre, desplegando la ventana

@@ -1,0 +1,8 @@
+PARA LANZAR UN DEBUG, EL COMANDO ES EL SIGUIENTE
+Set PWDEBUG=1
+pytest Debug_test_1.py -s
+en mi caso que lo corro desde la raiz 
+python -m pytest .\21_Debug_test\Debug_test_1.py -s
+
+para quitar el modo DEBUG
+Set PWDEBUG=0

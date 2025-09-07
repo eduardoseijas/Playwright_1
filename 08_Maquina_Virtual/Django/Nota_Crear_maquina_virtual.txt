@@ -1,0 +1,22 @@
+# Creando maquina vistuales #
+
+0.- Crear la capeta y entrar en ella, en este caso fue curso_1, luego dentro de ella --->
+1.- Crear maquina virtual
+Comando python -m venv django1_prueba
+
+2.- Entrar a la subcarpeta Scripts
+.\activate.ps1
+deactivate
+
+en CMDER O CMD
+activate.bat
+deactivate
+
+3.- Instalar django1_prueba
+Comando pip install django
+
+4.- Nota importante "Siempre estar en el entorno virtual activo"
+5.- Regresar a la carpeta raiz del proyecto
+6.- Verificar paquetes de nuestro entorno virtual
+Comando pip freeze --local 
+

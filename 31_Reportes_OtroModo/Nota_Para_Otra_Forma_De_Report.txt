@@ -1,0 +1,17 @@
+ESTA ES OTRA FORMA DE GENERAR REPORTES 
+Pag web https://pypi.org/project/pytest-reporter-html1/
+
+Comando para instalar
+pip install pytest-reporter-html1
+
+El comando para generar el reporte, en este caso que es desde la raiz
+
+python -m pytest .\31_Reportes_OtroModo\Test_Reporte_Otro_Modo_1.py -s -v --template=html1/index.html --report=report_otroModo.html
+
+Si quieres que se repita o que lanze varios a la vez agregas el -n con el numero de veces que quieras
+
+python -m pytest .\31_Reportes_OtroModo\Test_Reporte_Otro_Modo_1.py -s -v -n 2 --template=html1/index.html --report=report_otroModo.html
+
+
+Aqui lo lanze con error
+python -m pytest .\31_Reportes_OtroModo\Test_Reporte_Otro_Modo_1.py -s -v -n 2 --template=html1/index.html --report=report_otroModo_Con_Error.html

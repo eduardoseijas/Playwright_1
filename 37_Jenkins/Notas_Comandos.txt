@@ -1,0 +1,102 @@
+Una vez creado el proyecto en jenkins
+
+para poder correrlo
+
+Debo configurarlo:
+
+En descripcion, colocar una breve descripcion que quieras
+
+Lueso si se crea un workspace, usar la ruta donde esta el proyecto en este caso es:
+
+en la opcion:
+
+use custom workspace - > D:\Practica_Playwright  #esa es la ruta en que tengo mi proyecto
+
+Ahora bien, ya que dentro de jenkins no tengo instalado ni python, ni playwright,
+en 
+
+Build Steps
+ seleccionar la opcion -> Execute Windows batch command
+
+ y dentro de este colocar Todo este comando que esta dentro de las rallas
+
+----------------------------------------------------------------------------------------------------------
+@echo off
+setlocal enableextensions
+
+if defined WORKSPACE (set "PROJ=%WORKSPACE%") else (set "PROJ=%~dp0")
+cd /d "%PROJ%" || (echo [ERROR] No puedo entrar a %PROJ% & exit /b 1)
+
+set "PYTHON_EXE=C:\Users\Usuario\AppData\Local\Programs\Python\Python313\python.exe"
+if not exist "%PYTHON_EXE%" set "PYTHON_EXE=C:\Program Files\Python313\python.exe"
+if not exist "%PYTHON_EXE%" set "PYTHON_EXE=C:\Program Files\Python312\python.exe"
+if not exist "%PYTHON_EXE%" set "PYTHON_EXE=C:\Program Files\Python311\python.exe"
+if not exist "%PYTHON_EXE%" (echo [ERROR] Ajusta PYTHON_EXE & exit /b 1)
+
+if not exist ".venv\Scripts\activate.bat" ("%PYTHON_EXE%" -m venv .venv) || (echo [ERROR] venv falló & exit /b 1)
+call ".venv\Scripts\activate.bat" || (echo [ERROR] activar venv falló & exit /b 1)
+
+".venv\Scripts\python.exe" -m pip install -U pip
+if exist requirements.txt (
+  ".venv\Scripts\python.exe" -m pip install -r requirements.txt
+)
+".venv\Scripts\python.exe" -m pip install pytest playwright pytest-playwright
+
+set "PLAYWRIGHT_BROWSERS_PATH=%PROJ%\.pw-browsers"
+".venv\Scripts\python.exe" -m playwright install
+
+REM Si no pasas nada: ejecuta 29_Parametrizacion
+if "%~1"=="" (
+  ".venv\Scripts\python.exe" -m pytest -s -v "29_Parametrizacion" --browser chromium
+) else (
+  ".venv\Scripts\python.exe" -m pytest -s -v %*
+)
+
+exit /b %ERRORLEVEL%
+
+------------------------------------------------------------------------------------------------------------
+
+ESTA ES LA EXPLICACION DE CADA UNO DE LOS PASOS DEL COMANDO
+REM 1) cd /d "%WORKSPACE%"  
+Cambia al directorio raíz del proyecto (workspace de Jenkins).
+
+REM 2) if not exist ... python.exe -m venv "%WORKSPACE%\.venv"  
+Si no existe el entorno virtual `.venv`, lo crea con tu Python 3.13.
+
+REM 3) call "%WORKSPACE%\.venv\Scripts\activate.bat"  
+Activa el entorno virtual para que todo use ese Python aislado.
+
+REM 4) pip install ...  
+Actualiza pip e instala pytest, playwright y pytest-playwright.  
+(playwright install descarga los navegadores necesarios).
+
+REM 5) set PYTHONPATH=...  
+Agrega el workspace y la carpeta común `AA_Funciones_Globales_Total` al PYTHONPATH, así Python encuentra los módulos compartidos.
+
+REM 6) python -m pytest "29_Parametrizacion\Test_Parametrizacion_2.py" --headed  
+Ejecuta el test indicado (con navegador visible gracias a --headed).
+#################################
+
+SI QUIERO LANZAR OTRO, POR EJEMPLO LA CARPETA 18, SERIA ASI:
+
+REM 1) Ir a la raíz del workspace
+cd /d "%WORKSPACE%"
+
+REM 2) Crear venv si no existe
+if not exist "%WORKSPACE%\.venv\Scripts\activate.bat" (
+  "C:\Users\Usuario\AppData\Local\Programs\Python\Python313\python.exe" -m venv "%WORKSPACE%\.venv"
+)
+
+REM 3) Activar venv
+call "%WORKSPACE%\.venv\Scripts\activate.bat"
+
+REM 4) Instalar/actualizar dependencias (añadimos pytest-playwright)
+"%WORKSPACE%\.venv\Scripts\python.exe" -m pip install -U pip
+"%WORKSPACE%\.venv\Scripts\python.exe" -m pip install pytest playwright pytest-playwright
+"%WORKSPACE%\.venv\Scripts\python.exe" -m playwright install
+
+REM 5) Añadir el workspace al PYTHONPATH (para que se encuentren módulos comunes)
+set PYTHONPATH=%WORKSPACE%;%WORKSPACE%\AA_Funciones_Globales_Total;%PYTHONPATH%
+
+REM 6) Ejecutar el test desde la raíz
+"%WORKSPACE%\.venv\Scripts\python.exe" -m pytest "18_Unpload_Files\Unpload_Files_2_Remover.py" --headed

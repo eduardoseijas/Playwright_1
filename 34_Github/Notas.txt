@@ -1,0 +1,18 @@
+https://github.com/
+
+Una vez ingresado en GitHub, con tu usuario
+creas un nuevo repositorio
+
+Una vez le das a crear te da la pag los comandos a lanzar para subirlo,
+importante siempre crear la rama master
+
+Para agregar a mi github creado:
+git remote add origin https://github.com/eduardoseijas/Playwright_1.git
+(este comando de arriba lo saco de la pag)
+git branch -M master
+git push -u origin master
+
+luego de cualquier cambio para que sirva y se vea, hay que hacer un git push
+despues del git commit -m ""
+
+Mi informacion github

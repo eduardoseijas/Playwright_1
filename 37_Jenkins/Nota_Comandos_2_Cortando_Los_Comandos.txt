@@ -1,0 +1,81 @@
+Cree en la raiz del proyecto en la carpeta D:\ Practica_Playwright>
+
+Un Archivo .txt 
+requirements.txt 
+en ese archivo estan las librerias a instalar para poder correr en jenkins si que los comandos sean tan largos
+
+Un archivo .bat
+run_tests.bat 
+este archivo tambien tiene un comando para encender la maquina virtual y mas desde que lanzo, dentro de ellas podras ver
+su estructura:
+
+Nota: REM es una forma de hacer comentario y que no te lo tome como codigo
+##################################################################################################################
+@echo off
+setlocal enableextensions
+
+REM =====================================================
+REM = Script para ejecutar tests de Playwright con pytest
+REM = Explicado paso a paso
+REM =====================================================
+
+REM === 1) Guardar la ruta raíz del repo (donde está este .bat) ===
+REM %~dp0 devuelve la carpeta donde está ubicado este archivo .bat
+set ROOT=%~dp0
+
+REM === 2) Crear/activar entorno virtual del proyecto ===
+REM - Si no existe .venv\Scripts\activate.bat:
+REM   a) Crea el entorno virtual con Python 3.13
+REM   b) Activa ese entorno virtual
+REM   c) Actualiza pip a la última versión
+REM   d) Instala las librerías listadas en requirements.txt
+REM   e) Descarga navegadores de Playwright
+REM - Si ya existe el venv, solo lo activa
+if not exist "%ROOT%.venv\Scripts\activate.bat" (
+  "C:\Users\Usuario\AppData\Local\Programs\Python\Python313\python.exe" -m venv "%ROOT%.venv"
+  call "%ROOT%.venv\Scripts\activate.bat"
+  "%ROOT%.venv\Scripts\python.exe" -m pip install -U pip
+  "%ROOT%.venv\Scripts\python.exe" -m pip install -r "%ROOT%requirements.txt"
+  "%ROOT%.venv\Scripts\python.exe" -m playwright install
+) else (
+  call "%ROOT%.venv\Scripts\activate.bat"
+)
+
+REM === 3) Añadir funciones globales al PYTHONPATH ===
+REM Esto permite que Python pueda importar AA_Funciones_Globales_Total sin errores
+set PYTHONPATH=%ROOT%;%ROOT%AA_Funciones_Globales_Total;%PYTHONPATH%
+
+REM === 4) Ejecutar pytest con los parámetros recibidos ===
+REM %* significa “todos los argumentos que me pasen al llamar este .bat”
+REM Ejemplos:
+REM   run_tests.bat 29_Parametrizacion\Test_Parametrizacion_2.py --headed
+REM   run_tests.bat 29_Parametrizacion --headed
+REM   run_tests.bat --headed
+"%ROOT%.venv\Scripts\python.exe" -m pytest %*
+
+####################################################################################
+
+
+*El comando para colocar en jenkins y ejecutar una es:
+cd /d D:\Practica_Playwright
+call run_tests.bat 29_Parametrizacion --browser chromium
+O Archivo en especifico
+cd /d D:\Practica_Playwright
+call run_tests.bat 29_Parametrizacion\Test_Parametrizacion_2.py --browser chromium
+
+*o si quieres cambiar a otra carpeta
+
+cd /d D:\Practica_Playwright
+call run_tests.bat 32_Parametrizacion_Con_Excel --browser chromium
+
+Uno en particular
+cd /d D:\Practica_Playwright
+call run_tests.bat 32_Parametrizacion_Con_Excel\Test_Excel_2.py --browser chromium
+
+Si quiero correr esto desde aqui desde mi visual con powershell, el comando es por EJEMPLO
+
+Esto es si es la carpeta 29, sino podemos cambiar a otra.
+.\run_tests.bat 29_Parametrizacion\Test_Parametrizacion_2.py --headed
+
+Con CMD el comado es 
+run_tests.bat 29_Parametrizacion\Test_Parametrizacion_2.py --headed

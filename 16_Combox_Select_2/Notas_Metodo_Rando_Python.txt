@@ -1,0 +1,28 @@
+Para que funcione el metodo random, tengo que tener una libreria
+Colocar en la cabecera:
+import random
+
+
+    #Merodo random
+    numA=random.sample(range(1,4),1)
+    print(numA)
+    #F.Combo_label("//select[@id='version']",)
+    if numA[0]==1:
+        F.Combo_label("//select[@id='version']","Ubuntu",2)
+        print("Es el uno")
+    elif numA[0]==2:
+        F.Combo_label("//select[@id='version']","Fedora",2)
+        print("Es el dos")
+    elif numA[0]==3:
+        F.Combo_label("//select[@id='version']","Debian",2)
+        print("Es el tres")
+
+
+Puedo hacer esta variable y asignarlo en mis pruebas, por ejemplo
+numA2=random.sample(range(1,100000),6)
+
+Creado con mis funciones:
+    F.Texto("//input[@id='nombre']","Eduardo"+str(numA2[0]),1) #Recordar el str cuanco concatenes en string
+    F.Texto_img("//input[@id='apellidos']","Seijas"+str(numA2[0]),ruta+"Fotoapellidoconnumerorandom"+str(numA2[0])+".png",2)
+
+    Coloco por el selector colocando la variable y concatenandola

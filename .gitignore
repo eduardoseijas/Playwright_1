@@ -1,0 +1,30 @@
+report_dos.html   
+35_Carpeta_para_se_ignorada/
+
+#Con la carpeta 35, al colocarle al final / es para carpetas
+#Con el formato del archivo, es solo para el archivo, ejemplo .html
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Playwright outputs
+playwright-report/
+test-results/
+*.zip
+*.log
+
+# Playwright browsers cache
+.pw-browsers/
+
+# Allure / reports
+allure-report/
+.allure-results/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

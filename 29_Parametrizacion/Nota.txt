@@ -1,0 +1,18 @@
+Pag web con la informacion para parametrizar
+https://docs.pytest.org/en/7.2.x/how-to/parametrize.html
+
+
+import pytest #IMPORTANTE LA LIBRERIA DE pytest
+
+
+@pytest.mark.parametrize("test_input,expected", [("3+5", 8), ("2+4", 6), ("6*9", 42)])
+def test_eval(test_input, expected):
+    assert eval(test_input) == expected
+
+
+    pytest.param("", , marks=pytest.mark.xfail) Con ese comando es para que te lo ponga fallido, pero
+    te permita seguir corriendo, en el caso de mi ejercicio dentro de la carpeta 29, el Test_Parametrizacion_1.py 
+
+    @pytest.mark.parametrize("Numero,Esperando", [("3+5", 8), ("2+4", 6), pytest.param("6*9", 42, marks=pytest.mark.xfail),("9*5",45)])
+def test_eval(Numero, Esperando):
+    assert eval(Numero) == Esperando

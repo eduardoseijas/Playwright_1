@@ -1,0 +1,11 @@
+#Para crear una carpeta desde github, en Add file, colocas el nombre de la carpeta que quieres y
+# agregas un / luego el nombre del archivo que quieres y colocas . el formato que quieras
+#por ejemplo en este caso, coloque el nombre de la carpeta 36_NuevaCarpetadesdegithub/ 
+y nombre del archivo Nota_creando_desde_github.txt, en formato txt
+
+todo quedaria
+36_NuevaCarpetadesdegithub/Nota_creando_desde_github.txt
+
+guardas la informacion en commit changes
+
+y en el visual o pycharm, haces un git pull para que se vea el cambio

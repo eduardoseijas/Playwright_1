@@ -1,0 +1,18 @@
+Como en el multiples test, tengo varios y corre varios, uno tras otro.
+En este caso del ejemplo que tengo dentro de esta carpeta, tengo 4
+La forma de correrlo es
+pytest el nombre del archivo es decir:
+pytest Multiples_Test.py
+
+Como yo estoy corriendolo desde la raizm mi comando es este:
+python -m pytest .\23_Multuples_Test\Multiples_Test.py:
+
+Ahora bien, ####IMPORTANTE#####
+Si yo quiero lanzar uno en especifico, deberia ser:
+pytest Multiples_Test.py:: y el nombre del test que tenga dentro de ese archivo, en este caso
+
+pytest Multiples_Test.py::test_CheckBox
+
+Y como yo lo estoy corriendo desde la raiz, seria
+
+python -m pytest .\23_Multuples_Test\Multiples_Test.py::test_CheckBox

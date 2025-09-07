@@ -1,0 +1,28 @@
+# Creando maquina vistuales #
+
+0.- Crear la capeta y entrar en ella, en este caso fue 09_Curso_Playwright, luego dentro de ella --->
+1.- Crear maquina virtual
+Comando python -m venv mv_playwirght
+
+2.- Entrar a la subcarpeta Scripts
+.\activate.ps1
+3.- Instalar mv_playwirght
+Comando pip install django
+
+4.- Nota importante "Siempre estar en el entorno virtual activo"
+5.- Regresar a la carpeta raiz del proyecto
+6.- Verificar paquetes de nuestro entorno virtual
+Comando pip freeze --local 
+
+
+-----------------------
+
+instalar mv_playwright, esto lo hacemos en la carpeta donde queremos que este el proyecto,
+en este caso 09_Curso_Playwright
+
+pip install pytest-playwright
+
+playwright install
+
+con pip list, ves el listado de lo instalado
+

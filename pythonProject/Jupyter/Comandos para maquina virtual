@@ -1,0 +1,22 @@
+Creamos una carpeta en la madre
+
+Para crear maquina virtual python - venv y luego el nombre, ejemplo de este proyecto
+en la linea de abajo:
+python -m venv jp_virtual
+luego para activarla usamos
+vamos a la carpeta jupyter con el comando cd Jupyter
+
+luego a la carèta virtual jp_virtual
+cd jp_virtual
+cd Scripts
+y para activarla
+.\activate.ps1    -->esto es si es con powershell
+
+Luego en la web de https://jupyter.org/install
+
+consigo el comando de instalacion pip install jupyterlab
+Con eso instalo toda la paqueteria
+con pip list veo la lista de lo instalado con la paqueteria
+
+cuando quiera desactivar la maquina virtual es deactive
+

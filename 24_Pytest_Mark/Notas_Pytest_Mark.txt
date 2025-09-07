@@ -1,0 +1,34 @@
+ES IMPORTANTE USAR EN LA LIBRERIA
+
+import pytest
+
+debes crear ese escrito sobre la definicion de la test 
+@pytest.mark.skip(reason="Este Modulo esta inhabilitado Upload")    
+def test_Unpload(playwright) -> None:
+
+el comando para lanzarlo, le agregas un -s -v por ejemplo 
+
+python -m pytest .\24_Pytest_Mark\Test_Pytest_Mark_1.py -s -v
+
+Este es para que asi la prueba tenga un error pueda correr, y colocas esto
+encima de la definicion del test
+@pytest.mark.xfail(reason="") dentro de las comillas colocas el motivo, escrito  o nombre que quieras
+def test_Unpload(playwright) -> None:
+
+otro, para que puedes hacerlo con condicional es
+@pytest.mark.skipif(tiempo>=1.5,reason="") 
+def test_Unpload(playwright) -> None:
+
+---------------------------------------------------------------------------------------
+Otra libreria
+esta nos muestra informacion directamente del sistema operativo
+
+import sys 
+
+Colocar en la cabezera de la definicion de el test
+@pytest.mark.skipif(sys.platform=="",reason="")  en este caso es de la plataforma, puedes usar otros
+def test_CheckBox(playwright) -> None:
+
+RECORDAR SIEMPRE EL COMANDO PARA LANZARLO, le agregas un -s -v por ejemplo 
+
+python -m pytest .\24_Pytest_Mark\Test_Pytest_Mark_3_sys.py -s -v

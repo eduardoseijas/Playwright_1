@@ -1,0 +1,4 @@
+playwright codegen https://demoqa.com/checkbox
+
+con el comando playwright codegen y la pag web que queires testear pueds tomar todo el codigo
+puedes seleccionar el target que quieras, si es nodejs python etc, en este caso use library en python, tambien puedes escoger pytest
